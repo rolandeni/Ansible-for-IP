@@ -7,7 +7,7 @@
 6. The second task is named "Add logical IP address" and uses the shell module to execute the ip addr add command with the specified IP address, subnet mask, and interface name.
 7. Assuming that the variables are correctly defined and the iproute2 package is not already installed, this script should successfully install ip utils and add the specified logical IP address to the specified interface.
 
-## Break down of script ip_module.yaml 
+## Break down of ip_module.yaml 
 
 In this script, the **vars** section defines the interface name, IP address, and subnet mask as variables. The tasks section contains a single task named *"Add new IP address"* that uses the shell module to execute the ip address add command with the specified IP address, subnet mask, and interface name.
 
