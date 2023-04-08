@@ -1,0 +1,25 @@
+#using shell command to add ip 
+
+---
+ - hosts: all
+   become: true
+   pre_tasks: 
+   - name: Install ip utility
+     apt:
+       name: iproute2
+       state: present
+
+   - name: Add logical IP address
+     hosts: #your_host
+     become: yes
+     vars:
+      interface_name: #your_interface_name
+      ip_address: #your_ip_address
+      subnet_mask: #your_subnet_mask
+        tasks:
+        - name: Add logical IP address
+          shell: ip addr add {{ ip_address }}/{{ subnet_mask }} dev {{ interface_name }}
+        
+ 
+
+ 

@@ -1,0 +1,17 @@
+# using the ip_address module 
+---
+- name: Provision new IP addresses on a server
+  hosts: your_server
+  become: true
+
+  vars:
+    new_ips:
+      - "192.168.1.10/24"
+      - "192.168.1.11/24"
+
+  tasks:
+    - name: Add new IP addresses
+      ipaddr:
+        name: "{{ item }}"
+        state: present
+      with_items: "{{ new_ips }}"

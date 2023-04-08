@@ -1,0 +1,6 @@
+---
+- hosts: myserver
+  become: true
+  tasks:
+    - name: Provision new IP address
+      ansible.builtin.shell: ip address add 192.168.1.100/24 dev eth0
